@@ -35,7 +35,7 @@ func WithGithubRepo(repo string) SourceHelperOptions {
 
 func NewSourceHelper(opts ...SourceHelperOptions) *SourceHelper {
 	gh := &SourceHelper{
-		GithubOwner:             "deployKF",
+		GithubOwner:             "kaasops",
 		GithubRepo:              "deployKF",
 		GeneratorArtifactPrefix: "deploykf-",
 		GeneratorArtifactSuffix: "-generator.zip",
