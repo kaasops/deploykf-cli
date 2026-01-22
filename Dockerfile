@@ -6,7 +6,7 @@ ARG TARGETARCH
 # args -- software versions
 ARG DKF_CLI_OS=${TARGETOS}
 ARG DKF_CLI_ARCH=${TARGETARCH}
-ARG DKF_CLI_RELEASE_TAG=v0.1.2
+ARG DKF_CLI_RELEASE_TAG=v0.1.3
 
 # args -- uid/gid
 ARG DEPLOYKF_USER=deploykf
@@ -15,7 +15,7 @@ ARG DEPLOYKF_UID=1001
 ARG DEPLOYKF_GID=1001
 ARG DEPLOYKF_HOME=/home/${DEPLOYKF_USER}
 
-# install deploykf cli
+# install deploykf cli https://github.com/kaasops/deploykf-cli/releases/download/v0.1.3/deploykf-linux-amd64
 RUN wget -q -O /tmp/deploykf "https://github.com/kaasops/deploykf-cli/releases/download/${DKF_CLI_RELEASE_TAG}/deploykf-${DKF_CLI_OS}-${DKF_CLI_ARCH}" \
  && wget -q -O /tmp/deploykf.sha256 "https://github.com/kaasops/deploykf-cli/releases/download/${DKF_CLI_RELEASE_TAG}/deploykf-${DKF_CLI_OS}-${DKF_CLI_ARCH}.sha256" \
  && echo "$(cat /tmp/deploykf.sha256 | awk '{ print $1; }')  /tmp/deploykf" | sha256sum -c - \
